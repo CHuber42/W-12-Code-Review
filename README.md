@@ -38,7 +38,9 @@ between a flavor and a treat. Also add db context model. (Done? YES)
 
 Phase 2: Add Controller infrastructure for Routes (Index/Create/Edit/Delete/Details) in Treats and Flavors controllers. (Done? YES)   
 
-Phase 3: Flesh out P2 controllers with DB accesses (Done? NO)
+Phase 3: Flesh out P2 controllers with DB accesses (Done? YES)
+
+Phase 4: Add views/forms in views for Treats and Flavors to navigate through basic functionality (Authorization comes later) (Done? NO)
 
 
 ##### Stretch Goals 
