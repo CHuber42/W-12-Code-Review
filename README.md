@@ -49,7 +49,9 @@ Phase 6: Confirm Functionality of previous phases, apply initial migration (Done
 Phase 7: Using Home as Login page, write AccountController (Done? YES)  
 Phase 7B. Treat and Flavor edits will be locked to non-logged in users, so added browsing for all goodies to non-locked home controller (Done? YES)  
 
-Phase 8. Write LoginViews (Register and Login) (Done? NO)  
+Phase 8. Write LoginViews (Register and Login) (Done? YES)
+
+Phase 9. Adapt Flavor and Treat controllers to be Authorization-locked and utilize async calls (Done? NO)
 
 
 ##### Stretch Goals 
