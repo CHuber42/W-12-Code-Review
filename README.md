@@ -34,7 +34,9 @@ A user should be able to navigate to a splash page that lists all treats and fla
 
 Phase 1: Build models folder. Components: "Treat" class w/ "TreatId", "Name", "List of Join Entities" attribute. Same for "Flavor" class. Then add 
 Join entity class with "JoinEntityId", "TreatId", "Treat class object", "FlavorId", "Flavor class object" in it. Each Join entity represents 1 edge
-between a flavor and a treat. Also add db context model. (Done? NO)
+between a flavor and a treat. Also add db context model. (Done? YES)
+
+Phase 2: Add Controller infrastructure for Routes (Index/Create/Edit/Delete/Details) in Treats and Flavors controllers. (Done? NO) 
 
 
 ##### Stretch Goals 
