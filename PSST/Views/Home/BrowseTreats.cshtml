@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@using SweetSavory.Models
+@model List<SweetSavory.Models.Treat>
+
+<h3>Welcome to Pierre's! Please feel free to look around...</h3>
+
+<h1>Browse Treats:</h1>
+
+@foreach (Treat treat in @Model)
+{
+  <br>@treat.Name
+}
