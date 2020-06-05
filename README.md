@@ -14,15 +14,28 @@
 
 This project is built in C# 8.0 using .netcoreapp2.2 on a system running Ubuntu 18.04.
 Dependencies are declared in the HairSalon.csproj and HairSalon.Tests.csproj files in their respective folders.
-.NetCoreApp 2.2 Framework is required.
+.NetCoreApp 2.2 Framework is required.  
 
 To install, simply clone (or download) this folder into a new directory, git bash to PSST.Solution/PSST/ folder,
-and run dotnet restore.
+and run dotnet restore.  
 
-To run: either build the project using dotnet build and run the .exe, or navigate to the
-PSST.Solution/PSST/ folder in a terminal and enter "dotnet run"
+To Build: After install, run "Dotnet build" to compile the program.  
 
-##### MySQL Setup Instructions
+To run: Navigate to the PSST.Solution/PSST/ folder in a terminal and enter "dotnet run".  
+
+##### MySQL/Appsettings.json Setup Instructions:
+
+1. In the root directory, create a file named "appsettings.json" and paste in the following:  
+{
+  "ConnectionStrings": {
+      "DefaultConnection": "Server=localhost;Port=3306;database=[Your_Database_Name];uid=[YourMySQLLoginUser];pwd=[YourMySQLLoginPassword];"
+  }
+}
+
+2. Open a terminal into the root project directory. Run "dotnet ef migrations add MyVersion" to create your database (If you have chosen a new one)  
+
+3. Now run "Dotnet ef database update" to apply the changes to your personal database, which serves as the database for this app.
+
 
 ##### Development Description:
 
@@ -54,11 +67,6 @@ Phase 8. Write LoginViews (Register and Login) (Done? YES)
 Phase 9. Adapt Flavor and Treat controllers to be Authorization-locked and utilize async calls (Done? Yes)
 
 Phase 10 (Final). Add Views (Forms) to register/log in. (Pointed at Home) (Done? No)
-
-
-##### Stretch Goals 
-
-** Add Nav Bar
 
 ##### _Contact_:
 
