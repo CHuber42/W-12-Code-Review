@@ -1,0 +1,12 @@
+@{
+  Layout= "_Layout";
+}
+
+@model SweetSavory.Models.Treat
+
+<h2>Delete @Model.Name?</h2>
+
+@using (Html.BeginForm())
+{
+  <p><input type="submit" value="Confirm Delete" /></p>
+}

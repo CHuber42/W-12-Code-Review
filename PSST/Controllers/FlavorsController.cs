@@ -60,10 +60,32 @@ namespace SweetSavory.Controllers
     public ActionResult Delete(int id)
     {
       Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
+      return View("Index", thisFlavor);
+    }
+
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(flavor => flavor.FlavorId == id);
       _db.Remove(thisFlavor);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
+    public ActionResult AddTreat(int id)
+    {
+      return View("AddTreat");
+    }
+
+    [HttpPost]
+    public ActionResult AddTreat(Flavor flavor, int treatid)
+    {
+      return RedirectToAction("Index");
+    }
+
+    public ActionResult DeleteTreat(int id)
+    {
+      return RedirectToAction("Index");
+    }
   }
 }
