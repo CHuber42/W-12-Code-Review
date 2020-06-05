@@ -44,7 +44,9 @@ Phase 4: Add views/forms in views for Treats and Flavors to navigate through bas
 
 Phase 5: Add Join Table Routes + Views (Done? YES)   
 
-Phase 6: Confirm Functionality of previous phases, apply initial migration (Done? NO)
+Phase 6: Confirm Functionality of previous phases, apply initial migration (Done? YES)
+
+Phase 7: Using Home as Login page, write AccountController (Done? NO)
 
 
 ##### Stretch Goals 
