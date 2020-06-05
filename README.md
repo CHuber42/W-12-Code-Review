@@ -51,7 +51,9 @@ Phase 7B. Treat and Flavor edits will be locked to non-logged in users, so added
 
 Phase 8. Write LoginViews (Register and Login) (Done? YES)
 
-Phase 9. Adapt Flavor and Treat controllers to be Authorization-locked and utilize async calls (Done? NO)
+Phase 9. Adapt Flavor and Treat controllers to be Authorization-locked and utilize async calls (Done? Yes)
+
+Phase 10 (Final). Add Views (Forms) to register/log in. (Pointed at Home) (Done? No)
 
 
 ##### Stretch Goals 
