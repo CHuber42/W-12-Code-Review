@@ -21,7 +21,8 @@ namespace SweetSavory.Controllers
 
     public ActionResult Index()
     {
-      return View("Index");
+      List<Treat> allTreats = _db.Treats.ToList();
+      return View("Index", allTreats);
     }
 
     public ActionResult Create()
@@ -32,26 +33,35 @@ namespace SweetSavory.Controllers
     [HttpPost]
     public ActionResult Create(Treat Treat)
     {
+      _db.Treats.Add(Treat);
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
     public ActionResult Details(int id)
     {
-      return View("Details");
+      Treat thisTreat = _db.Treats.FirstOrDefault(Treat => Treat.TreatId == id);
+      return View("Details", thisTreat);
     }
 
     public ActionResult Edit(int id)
     {
-      return View("Edit");
+      Treat thisTreat = _db.Treats.FirstOrDefault(Treat => Treat.TreatId == id);
+      return View("Edit", thisTreat);
     }
     
     [HttpPost]
     public ActionResult Edit(Treat Treat)
     {
+      _db.Entry(Treat).State = EntityState.Modified;
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
+    
     public ActionResult Delete(int id)
     {
+      Treat thisTreat = _db.Treats.FirstOrDefault(Treat => Treat.TreatId == id);
+      _db.Remove(thisTreat);
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
