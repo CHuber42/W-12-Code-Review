@@ -11,10 +11,10 @@ using System.Security.Claims;
 
 namespace SweetSavory.Controllers 
 {
-  public class FlavorController : Controller
+  public class FlavorsController : Controller
   {
     private readonly SweetSavoryContext _db;
-    FlavorController(SweetSavoryContext db)
+    FlavorsController(SweetSavoryContext db)
     {
       _db = db;
     }
