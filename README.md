@@ -42,9 +42,9 @@ Phase 3: Flesh out P2 controllers with DB accesses (Done? YES)
 
 Phase 4: Add views/forms in views for Treats and Flavors to navigate through basic functionality (Authorization comes later) (Done? YES)   
 
-Phase 5: Add Join Table Routes + Views (Done? NO)   
+Phase 5: Add Join Table Routes + Views (Done? YES)   
 
-Phase 6: 
+Phase 6: Confirm Functionality of previous phases, apply initial migration (Done? NO)
 
 
 ##### Stretch Goals 
