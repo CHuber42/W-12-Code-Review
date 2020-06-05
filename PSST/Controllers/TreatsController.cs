@@ -11,6 +11,7 @@ using System.Security.Claims;
 
 namespace SweetSavory.Controllers 
 {
+  [Authorize]
   public class TreatsController : Controller
   {
     private readonly SweetSavoryContext _db;
@@ -21,10 +22,12 @@ namespace SweetSavory.Controllers
       _db = db;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      List<Treat> allTreats = _db.Treats.ToList();
-      return View("Index", allTreats);
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userTreats = _db.Treats.Where(entry => entry.User.Id == userId);
+      return View("Index", userTreats);
     }
 
     public ActionResult Create()
@@ -33,8 +36,11 @@ namespace SweetSavory.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Treat Treat)
+    public async Task<ActionResult> Create(Treat Treat)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      Treat.User = currentUser;
       _db.Treats.Add(Treat);
       _db.SaveChanges();
       return RedirectToAction("Index");

@@ -11,18 +11,23 @@ using System.Security.Claims;
 
 namespace SweetSavory.Controllers 
 {
+  [Authorize]
   public class FlavorsController : Controller
   {
     private readonly SweetSavoryContext _db;
-    public FlavorsController(SweetSavoryContext db)
+    private readonly UserManager<ApplicationUser> _userManager;
+    public FlavorsController(SweetSavoryContext db, UserManager<ApplicationUser> userManager)
     {
       _db = db;
+      _userManager = userManager;
     }
 
-    public ActionResult Index()
+    public async Task<ActionResult> Index()
     {
-      List<Flavor> allFlavors = _db.Flavors.ToList();
-      return View("Index", allFlavors);
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id);
+      return View("Index", userFlavors);
     }
 
     public ActionResult Create()
@@ -31,8 +36,11 @@ namespace SweetSavory.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Flavor flavor)
+    public async Task<ActionResult> Create(Flavor flavor)
     {
+      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+      var currentUser = await _userManager.FindByIdAsync(userId);
+      flavor.User = currentUser;
       _db.Flavors.Add(flavor);
       _db.SaveChanges();
       return RedirectToAction("Index");
