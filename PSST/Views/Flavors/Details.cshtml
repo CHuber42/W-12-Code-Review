@@ -7,10 +7,10 @@
 
 <h3>Treats that taste @Model.Name </h3>
 
-@foreach (FlavorTreat join in Model.FlavorTreats)
+@foreach (FlavorTreat join in @Model.FlavorTreats)
 {
-  <p>@Html.ActionLink($"{join.Treat.Name}", "Details", "Treats", new {id = join.Treat.TreatId})</p>
-  <p>@Html.ActionLink("Delete Relationship", "DeleteTreat", "Flavors", new { id = join.FlavorTreatId})</p>
+  <p>@Html.ActionLink($"{join.Treat.Name}", "Details", "Treats", new {id = join.Treat.TreatId})
+  @Html.ActionLink("(Delete)", "DeleteTreat", "Flavors", new { id = join.FlavorTreatId})</p>
 }
 
 <p>@Html.ActionLink("Add a Treat for this Flavor", "AddTreat", "Flavors", new {id = Model.FlavorId})</p>

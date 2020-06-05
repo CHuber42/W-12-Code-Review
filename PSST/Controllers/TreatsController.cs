@@ -41,7 +41,10 @@ namespace SweetSavory.Controllers
     }
     public ActionResult Details(int id)
     {
-      Treat thisTreat = _db.Treats.FirstOrDefault(Treat => Treat.TreatId == id);
+      Treat thisTreat = _db.Treats
+          .Include(treat => treat.FlavorTreats)
+          .ThenInclude(flavortreats => flavortreats.Flavor)
+          .FirstOrDefault(Treat => Treat.TreatId == id);
       return View("Details", thisTreat);
     }
 
