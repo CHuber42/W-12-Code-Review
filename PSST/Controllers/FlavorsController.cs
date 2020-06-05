@@ -14,7 +14,7 @@ namespace SweetSavory.Controllers
   public class FlavorsController : Controller
   {
     private readonly SweetSavoryContext _db;
-    FlavorsController(SweetSavoryContext db)
+    public FlavorsController(SweetSavoryContext db)
     {
       _db = db;
     }
