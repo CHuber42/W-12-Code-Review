@@ -36,7 +36,9 @@ Phase 1: Build models folder. Components: "Treat" class w/ "TreatId", "Name", "L
 Join entity class with "JoinEntityId", "TreatId", "Treat class object", "FlavorId", "Flavor class object" in it. Each Join entity represents 1 edge
 between a flavor and a treat. Also add db context model. (Done? YES)
 
-Phase 2: Add Controller infrastructure for Routes (Index/Create/Edit/Delete/Details) in Treats and Flavors controllers. (Done? NO) 
+Phase 2: Add Controller infrastructure for Routes (Index/Create/Edit/Delete/Details) in Treats and Flavors controllers. (Done? YES)   
+
+Phase 3: Flesh out P2 controllers with DB accesses (Done? NO)
 
 
 ##### Stretch Goals 
