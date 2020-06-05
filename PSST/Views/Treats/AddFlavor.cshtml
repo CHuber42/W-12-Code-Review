@@ -1,0 +1,15 @@
+@{
+  Layout = "_Layout";
+}
+
+@model SweetSavory.Models.Treat
+
+<h3>Associate a Flavor with @Model.Name</h3>
+
+@using (Html.BeginForm())
+{
+  @Html.Label("Select a Flavor")
+  @Html.DropDownList("FlavorId")
+  @Html.Hidden("TreatId", Model.TreatId)
+  <input type="submit" value="Associate" />
+}

@@ -74,17 +74,27 @@ namespace SweetSavory.Controllers
 
     public ActionResult AddFlavor(int id)
     {
-      return View("AddFlavor");
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Name");
+      Treat thisTreat = _db.Treats.FirstOrDefault(treat => treat.TreatId == id);
+      return View("AddFlavor", thisTreat);
     }
 
     [HttpPost]
-    public ActionResult AddFlavor(Treat Treat, int flavorid)
+    public ActionResult AddFlavor(int TreatId, int FlavorId)
     {
+      if (FlavorId != 0)
+      {
+        _db.FlavorTreats.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = TreatId });
+      }
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
     public ActionResult DeleteFlavor(int id)
     {
+      FlavorTreat thisLink = _db.FlavorTreats.FirstOrDefault(flavortreat => flavortreat.FlavorTreatId == id);
+      _db.FlavorTreats.Remove(thisLink);
+      _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
