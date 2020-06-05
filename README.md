@@ -44,9 +44,12 @@ Phase 4: Add views/forms in views for Treats and Flavors to navigate through bas
 
 Phase 5: Add Join Table Routes + Views (Done? YES)   
 
-Phase 6: Confirm Functionality of previous phases, apply initial migration (Done? YES)
+Phase 6: Confirm Functionality of previous phases, apply initial migration (Done? YES)  
 
-Phase 7: Using Home as Login page, write AccountController (Done? NO)
+Phase 7: Using Home as Login page, write AccountController (Done? YES)  
+Phase 7B. Treat and Flavor edits will be locked to non-logged in users, so added browsing for all goodies to non-locked home controller (Done? YES)  
+
+Phase 8. Write LoginViews (Register and Login) (Done? NO)  
 
 
 ##### Stretch Goals 
