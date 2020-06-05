@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using RecipeBox.Models;
+using SweetSavory.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace RecipeBox
+namespace SweetSavory
 {
   public class Startup
   {
@@ -26,11 +26,11 @@ namespace RecipeBox
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-        .AddDbContext<RecipeBoxContext>(options => options
+        .AddDbContext<SweetSavoryContext>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
 
       services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<RecipeBoxContext>()
+                .AddEntityFrameworkStores<SweetSavoryContext>()
                 .AddDefaultTokenProviders();
 
 
