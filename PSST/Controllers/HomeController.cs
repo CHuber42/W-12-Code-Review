@@ -1,8 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SweetSavory.Models;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
 using System.Linq;
 
 namespace SweetSavory.Controllers
