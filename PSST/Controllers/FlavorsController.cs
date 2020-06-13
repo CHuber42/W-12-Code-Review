@@ -21,6 +21,7 @@ namespace SweetSavory.Controllers
       _userManager = userManager;
     }
 
+    [AllowAnonymous]
     public async Task<ActionResult> Index()
     {
       var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
