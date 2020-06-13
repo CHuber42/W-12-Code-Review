@@ -73,7 +73,7 @@ namespace SweetSavory.Controllers
     public ActionResult Delete(int id)
     {
       Treat thisTreat = _db.Treats.FirstOrDefault(Treat => Treat.TreatId == id);
-      return View("Index", thisTreat);
+      return View("Delete", thisTreat);
     }
 
     [HttpPost, ActionName("Delete")]
