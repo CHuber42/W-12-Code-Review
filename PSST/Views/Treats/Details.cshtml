@@ -12,6 +12,6 @@
   <p>@Html.ActionLink($"{join.Flavor.Name}", "Details", "Flavors", new {id = join.Flavor.FlavorId})
   @Html.ActionLink("(Delete)", "DeleteFlavor", "Treats", new { id = join.FlavorTreatId})</p>
 }
-<p>@Html.ActionLink("(Edit)", "Edit", "Treats", new {id = Model.TreatId})</p>
-<p>@Html.ActionLink("Add a Flavor for this Treat", "AddFlavor", "Treats", new {id = Model.TreatId})</p>
-<p>@Html.ActionLink("Delete this Treat", "Delete", "Treats", new {id = Model.TreatId})</p>
+<p>@Html.ActionLink("Edit this Treat", "Edit", "Treats", new {id = Model.TreatId})
+<br>@Html.ActionLink("Add a Flavor for this Treat", "AddFlavor", "Treats", new {id = Model.TreatId})
+<br>@Html.ActionLink("Delete this Treat", "Delete", "Treats", new {id = Model.TreatId})</p>

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
+using System.Collections.Generic;
 
 namespace SweetSavory.Controllers 
 {
@@ -22,11 +23,9 @@ namespace SweetSavory.Controllers
     }
 
     [AllowAnonymous]
-    public async Task<ActionResult> Index()
+    public ActionResult Index()
     {
-      var userId = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-      var currentUser = await _userManager.FindByIdAsync(userId);
-      var userFlavors = _db.Flavors.Where(entry => entry.User.Id == currentUser.Id);
+      IEnumerable<Flavor> userFlavors = _db.Flavors.ToList();
       return View("Index", userFlavors);
     }
 
@@ -45,6 +44,8 @@ namespace SweetSavory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    [AllowAnonymous]
     public ActionResult Details(int id)
     {
       Flavor thisFlavor = _db.Flavors
